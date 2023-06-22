@@ -1,19 +1,22 @@
-import { api } from '@/lib/api'
-import jwtDecode from 'jwt-decode'
-import { NextRequest } from 'next/server'
+import { apiGoogle } from '@/lib/api'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const code = searchParams.get('code')
-  // const scope = searchParams.get('scope')
 
-  const response = await api.post('/token', {
+  const response = await apiGoogle.post('/token', {
     code,
     client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
-    client_secret: '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',
+    client_secret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
     grant_type: 'authorization_code',
-    redirect_uri: 'http://localhost:3000/api/auth/callback',
+    redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI,
   })
-  const info = jwtDecode(response.data.id_token)
-  console.log(info)
+  const googleToken = response.data.id_token
+
+  return NextResponse.redirect(`http://localhost:3000/test`, {
+    headers: {
+      'Set-Cookie': `googleInfo=${googleToken}; Path=/; max-age=1800`,
+    },
+  })
 }
