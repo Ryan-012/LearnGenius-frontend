@@ -1,6 +1,8 @@
 import { ReactNode } from 'react'
 import './globals.css'
+import { Roboto_Flex as Roboto } from 'next/font/google'
 
+const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 export const metadata = {
   title: 'Learn Genius',
   description: '',
@@ -9,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${roboto.variable}`}>{children}</body>
     </html>
   )
 }
