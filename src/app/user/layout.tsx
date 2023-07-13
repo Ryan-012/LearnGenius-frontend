@@ -16,9 +16,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main className="grid min-h-screen w-full font-sans text-gray-50 lg:grid-cols-2">
           {children}
 
-          <div className=" hidden items-center bg-gradient-to-r  from-gray-700 via-gray-900 to-black lg:flex ">
+          <div className="  hidden items-center bg-gradient-to-r  from-gray-700 via-gray-900 to-black lg:flex ">
             <div className="ml-8 space-y-1">
-              <p className="  text-7xl">Learn Genius</p>
+              <p className=" text-7xl">
+                Estuda<span className="text-yellow-300">+</span>
+              </p>
               <span className="text-3xl">
                 Construa seu futuro com o{' '}
                 <span className=" text-yellow-300">poder</span> do conhecimento!
