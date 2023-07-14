@@ -1,3 +1,8 @@
+// theme
+import 'primereact/resources/themes/lara-light-indigo/theme.css'
+
+// core
+import 'primereact/resources/primereact.min.css'
 import { ReactNode } from 'react'
 import './globals.css'
 import { Roboto_Flex as Roboto, Work_Sans as Work } from 'next/font/google'

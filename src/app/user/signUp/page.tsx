@@ -9,7 +9,6 @@ import InputForm from '@/components/InputForm'
 import waves from '@/assets/wave.svg'
 import { api } from '@/lib/api'
 import { useRouter } from 'next/navigation'
-
 type googleInfo = {
   email: string
   name: string
@@ -50,14 +49,16 @@ export default function SignUp() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center font-sans  text-gray-800">
+    <div className=" relative flex min-h-screen flex-col items-center justify-center font-sans  text-gray-800">
       <form
         onSubmit={createUser}
-        className=" mx-auto my-auto flex min-h-[600px] w-9/12 flex-col justify-around space-y-3 rounded p-3   "
+        className=" absolute  flex min-h-screen w-full  max-w-lg  flex-col items-center  justify-center  space-y-3 rounded   "
       >
-        <h2 className="text-5xl">Crie sua conta</h2>
+        <div className=" flex w-full flex-col items-center  justify-center space-y-3 max-sm:w-fit">
+          <h2 className=" self-start text-5xl max-sm:text-4xl sm:mb-7">
+            Crie sua conta
+          </h2>
 
-        <div className=" flex flex-col justify-center space-y-3">
           <InputForm
             type="text"
             placeholder="nome"
@@ -73,7 +74,7 @@ export default function SignUp() {
           <InputForm type="password" name="password" placeholder="senha" />
         </div>
 
-        <div className="flex flex-col items-center space-y-2">
+        <div className=" flex flex-col items-center space-y-4">
           <a
             href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&redirect_uri=http://localhost:3000/api/auth/callback&response_type=code&scope=email profile`}
             className="flex  min-w-[250px] items-center justify-center pr-2  hover:bg-gray-50"
@@ -92,20 +93,22 @@ export default function SignUp() {
 
           <button
             type="submit"
-            className="mx-auto mb-2 mt-auto  min-w-[250px] bg-yellow-300 p-2  hover:bg-yellow-400 "
+            className=" mx-auto mb-2 mt-auto min-w-[250px] rounded bg-indigo-700 p-2 text-white  transition duration-200   hover:shadow-md  hover:shadow-indigo-700 "
           >
             cadastrar-se
           </button>
           <span className=" text-center">
             Já possui uma conta?{' '}
-            <a href="/" className=" hover:text-gray-200">
+            <a
+              href="/"
+              className=" transition duration-200 hover:text-gray-200"
+            >
               Acessar
             </a>
           </span>
         </div>
       </form>
-
-      <Image className=" fixed bottom-0 max-w-max" src={waves} alt="waves" />
+      <Image className=" mt-auto  w-full  self-end" src={waves} alt="waves" />
     </div>
   )
 }
