@@ -9,6 +9,7 @@ import InputForm from '@/components/InputForm'
 import waves from '@/assets/wave.svg'
 import { api } from '@/lib/api'
 import { useRouter } from 'next/navigation'
+import { setCookie } from 'cookies-next'
 type googleInfo = {
   email: string
   name: string
@@ -42,9 +43,12 @@ export default function SignUp() {
       })
       .then((response) => {
         const { access_token, refresh_token } = response.data
-        Cookie.set('access_token', access_token, { expires: 60000 })
-        Cookie.set('refresh_token', refresh_token, { expires: 60000 })
+        setCookie('access_token', access_token, { maxAge: 60 })
+        setCookie('refresh_token', refresh_token, { maxAge: 3600 })
         router.push('/')
+      })
+      .catch((err) => {
+        console.log(err)
       })
   }
 
@@ -78,6 +82,8 @@ export default function SignUp() {
           <a
             href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&redirect_uri=http://localhost:3000/api/auth/callback&response_type=code&scope=email profile`}
             className="flex  min-w-[250px] items-center justify-center pr-2  hover:bg-gray-50"
+            onMouseOver={() => setIsHovered(true)}
+            onMouseOut={() => setIsHovered(false)}
           >
             <Image
               className=" h-10 w-10"
@@ -85,8 +91,6 @@ export default function SignUp() {
               width={4}
               height={4}
               alt=""
-              onMouseOver={() => setIsHovered(true)}
-              onMouseOut={() => setIsHovered(false)}
             />
             <span className=" font-alt">Faça login com o Google</span>
           </a>

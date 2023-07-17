@@ -5,7 +5,5 @@ export const apiGoogle = axios.create({
 })
 
 export const api = axios.create({
-  baseURL: 'http://192.168.2.98:3333',
+  baseURL: 'http://192.168.0.145:3333',
 })
-
-// login google url?  https://accounts.google.com/o/oauth2/v2/auth?{client_id, redirect_uri, response_type, scope = email profile}

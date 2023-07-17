@@ -2,9 +2,18 @@
 import { ShoppingCart, Search } from 'lucide-react'
 import Image from 'next/image'
 import learnImg from '@/assets/learn.jpg'
+import courseImg from '@/assets/AI_IMAGE.png'
 import { InputText } from 'primereact/inputtext'
-
+import { getCookie } from 'cookies-next'
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from '@/components/ui/hover-card'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 export default function Home() {
+  const token = getCookie('access_token')
   return (
     <div className=" relative min-h-screen justify-between  font-sans text-gray-800">
       <aside className="flex items-center justify-between bg-white p-3 shadow-lg">
@@ -20,21 +29,80 @@ export default function Home() {
           />
         </span>
         <div className=" flex items-center space-x-3 max-sm:hidden">
-          <a href="">
-            <ShoppingCart className="h-5 w-5 transition duration-200 hover:text-indigo-700 " />
-          </a>
-          <a
-            href="/user/signUp"
-            className=" rounded bg-indigo-700 p-2 text-white transition duration-200 hover:shadow-md hover:shadow-indigo-700"
-          >
-            Fazer login
-          </a>
-          <a
-            href=""
-            className=" rounded bg-indigo-700 p-2 text-white transition duration-200 hover:shadow-md hover:shadow-indigo-700"
-          >
-            Cadastrar-se
-          </a>
+          <HoverCard>
+            <HoverCardTrigger>
+              {' '}
+              <ShoppingCart className="h-5 w-5 transition duration-200 hover:text-indigo-700 " />
+            </HoverCardTrigger>
+            <HoverCardContent className=" mt-6 flex flex-col space-y-4 rounded bg-white">
+              <ul className=" max-h-[400px] space-y-1 overflow-y-scroll">
+                <li className=" flex space-x-2 border-b border-gray-400 p-3">
+                  <Image src={courseImg} className=" h-16 w-16 " />
+                  <div className=" ">
+                    <p className=" max-w-max break-words font-bold text-gray-900">
+                      Entendendo TypeScript
+                    </p>
+                    <p className=" text-xs text-gray-500">Leonardo Leitão</p>
+                    <span className="font-bold text-gray-900">R$25.90</span>
+                  </div>
+                </li>
+                <li className=" flex space-x-2 border-b border-gray-400 p-3">
+                  <Image src={courseImg} className=" h-16 w-16 " />
+                  <div className=" ">
+                    <p className=" max-w-max break-words font-bold text-gray-900">
+                      Entendendo TypeScript
+                    </p>
+                    <p className=" text-xs text-gray-500">Leonardo Leitão</p>
+                    <span className="font-bold text-gray-900">R$25.90</span>
+                  </div>
+                </li>{' '}
+                <li className=" flex space-x-2 border-b border-gray-400 p-3">
+                  <Image src={courseImg} className=" h-16 w-16 " />
+                  <div className=" ">
+                    <p className=" max-w-max break-words font-bold text-gray-900">
+                      Entendendo TypeScript
+                    </p>
+                    <p className=" text-xs text-gray-500">Leonardo Leitão</p>
+                    <span className="font-bold text-gray-900">R$25.90</span>
+                  </div>
+                </li>{' '}
+                <li className=" flex space-x-2 border-b border-gray-400 p-3">
+                  <Image src={courseImg} className=" h-16 w-16 " />
+                  <div className=" ">
+                    <p className=" max-w-max break-words font-bold text-gray-900">
+                      Entendendo TypeScript
+                    </p>
+                    <p className=" text-xs text-gray-500">Leonardo Leitão</p>
+                    <span className="font-bold text-gray-900">R$25.90</span>
+                  </div>
+                </li>
+              </ul>
+              <Button className="w-3/4 self-center" asChild>
+                <Link href="/shopping-cart">ver meu carrinho</Link>
+              </Button>
+            </HoverCardContent>
+          </HoverCard>
+
+          {token ? (
+            <>
+              <p>user logged</p>
+            </>
+          ) : (
+            <>
+              <a
+                href="/"
+                className=" rounded bg-indigo-700 p-2 text-white transition duration-200 hover:shadow-md hover:shadow-indigo-700"
+              >
+                Fazer login
+              </a>
+              <a
+                href="/user/sign-up"
+                className=" rounded bg-indigo-700 p-2 text-white transition duration-200 hover:shadow-md hover:shadow-indigo-700"
+              >
+                Cadastrar-se
+              </a>
+            </>
+          )}
         </div>
       </aside>
       <main className=" flex">
