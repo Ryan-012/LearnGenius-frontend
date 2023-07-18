@@ -5,11 +5,12 @@ import { FormEvent, useEffect, useState } from 'react'
 import Image from 'next/image'
 import btnGoogle from '@/assets/btn_google_light_normal_ios.svg'
 import btnGoogleHover from '@/assets/btn_google_light_pressed_ios.svg'
-import InputForm from '@/components/InputForm'
+import InputForm from '@/components/input-form'
 import waves from '@/assets/wave.svg'
 import { api } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { setCookie } from 'cookies-next'
+import { Button } from '@/components/ui/button'
 type googleInfo = {
   email: string
   name: string
@@ -95,12 +96,10 @@ export default function SignUp() {
             <span className=" font-alt">Faça login com o Google</span>
           </a>
 
-          <button
-            type="submit"
-            className=" mx-auto mb-2 mt-auto min-w-[250px] rounded bg-indigo-700 p-2 text-white  transition duration-200   hover:shadow-md  hover:shadow-indigo-700 "
-          >
+          <Button type="submit" className="min-w-[250px]">
             cadastrar-se
-          </button>
+          </Button>
+
           <span className=" text-center">
             Já possui uma conta?{' '}
             <a
