@@ -31,8 +31,8 @@ export default function Home() {
               <ShoppingCart className="h-5 w-5 transition duration-200 hover:text-indigo-700 " />
             </HoverCardTrigger>
             <HoverCardContent className=" mt-6 flex flex-col space-y-4 rounded bg-white">
-              <ul className=" max-h-[400px] space-y-1 overflow-y-scroll">
-                <li className=" flex space-x-2 border-b border-gray-400 p-3">
+              <ul className=" max-h-[300px] space-y-1 overflow-y-auto">
+                <li className=" flex space-x-2 border-b border-gray-200 p-3">
                   <Image alt="" src={courseImg} className=" h-16 w-16 " />
                   <div className=" ">
                     <p className=" max-w-max break-words font-bold text-gray-900">
@@ -42,7 +42,7 @@ export default function Home() {
                     <span className="font-bold text-gray-900">R$25.90</span>
                   </div>
                 </li>
-                <li className=" flex space-x-2 border-b border-gray-400 p-3">
+                <li className=" flex space-x-2 border-b border-gray-200 p-3">
                   <Image alt="" src={courseImg} className=" h-16 w-16 " />
                   <div className="">
                     <p className=" max-w-max break-words font-bold text-gray-900">
@@ -52,7 +52,7 @@ export default function Home() {
                     <span className="font-bold text-gray-900">R$25.90</span>
                   </div>
                 </li>{' '}
-                <li className=" flex space-x-2 border-b border-gray-400 p-3">
+                <li className=" flex space-x-2 border-b border-gray-200 p-3">
                   <Image alt="" src={courseImg} className=" h-16 w-16 " />
                   <div className=" ">
                     <p className=" max-w-max break-words font-bold text-gray-900">
@@ -62,7 +62,27 @@ export default function Home() {
                     <span className="font-bold text-gray-900">R$25.90</span>
                   </div>
                 </li>{' '}
-                <li className=" flex space-x-2 border-b border-gray-400 p-3">
+                <li className=" flex space-x-2 border-b border-gray-200 p-3">
+                  <Image alt="" src={courseImg} className=" h-16 w-16 " />
+                  <div className=" ">
+                    <p className=" max-w-max break-words font-bold text-gray-900">
+                      Entendendo TypeScript
+                    </p>
+                    <p className=" text-xs text-gray-500">Leonardo Leitão</p>
+                    <span className="font-bold text-gray-900">R$25.90</span>
+                  </div>
+                </li>
+                <li className=" flex space-x-2 border-b border-gray-200 p-3">
+                  <Image alt="" src={courseImg} className=" h-16 w-16 " />
+                  <div className=" ">
+                    <p className=" max-w-max break-words font-bold text-gray-900">
+                      Entendendo TypeScript
+                    </p>
+                    <p className=" text-xs text-gray-500">Leonardo Leitão</p>
+                    <span className="font-bold text-gray-900">R$25.90</span>
+                  </div>
+                </li>
+                <li className=" flex space-x-2 border-b border-gray-200 p-3">
                   <Image alt="" src={courseImg} className=" h-16 w-16 " />
                   <div className=" ">
                     <p className=" max-w-max break-words font-bold text-gray-900">
