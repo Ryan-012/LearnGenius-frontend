@@ -10,7 +10,7 @@ import ModalProvider from '@/contexts/modal'
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 const work = Work({ subsets: ['latin'], variable: '--font-work' })
 export const metadata = {
-  title: 'Learn Genius',
+  title: 'Estuda+',
   description: '',
 }
 

@@ -3,6 +3,7 @@ import { Input } from './ui/input'
 import { ModalContext } from '@/contexts/modal'
 import Image from 'next/image'
 import courseImg from '@/assets/AI_IMAGE.png'
+import { ScrollPanel } from 'primereact/scrollpanel'
 
 export default function SearchModal() {
   const { modalState, closeModal } = useContext(ModalContext)
@@ -26,6 +27,7 @@ export default function SearchModal() {
             onClick={() => closeModal()}
           ></i>
         </div>
+
         <ul className=" flex max-h-max w-full cursor-pointer flex-col  space-y-1 overflow-y-auto  border-t border-gray-200  ">
           <li className=" grid  w-full grid-cols-[64px_max-content] space-x-2 border-b border-gray-200  p-3 hover:bg-gray-200">
             <Image alt="" src={courseImg} className=" h-16 w-16 " />

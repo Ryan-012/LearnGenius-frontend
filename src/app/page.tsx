@@ -1,11 +1,8 @@
 'use client'
-import { Search, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import learnImg from '@/assets/learn.jpg'
 import courseImg from '@/assets/AI_IMAGE.png'
-
 import { Sidebar } from 'primereact/sidebar'
-
 import {
   HoverCard,
   HoverCardTrigger,
@@ -18,12 +15,13 @@ import Profile from '@/components/profile'
 import SearchBar from '@/components/search-bar'
 import { useContext, useState } from 'react'
 import { ModalContext } from '@/contexts/modal'
+
 export default function Home() {
   const token = getCookie('access_token')
   const [VisibleLeft, setVisibleLeft] = useState(false)
   const { openModal } = useContext(ModalContext)
   return (
-    <div className=" relative min-h-screen font-sans text-gray-900">
+    <div className=" relative min-h-screen  font-sans text-gray-900">
       <aside className="grid grid-cols-[max-content_50%_max-content] items-center justify-between gap-2 bg-white p-3 shadow-lg">
         <span className="  text-center text-3xl font-bold">
           Estuda<span className=" text-indigo-700">+</span>
@@ -47,7 +45,7 @@ export default function Home() {
               />
             </HoverCardTrigger>
             <HoverCardContent className=" mt-6 flex flex-col space-y-4 rounded bg-white">
-              <ul className=" flex max-h-max w-full cursor-pointer flex-col  space-y-1 overflow-y-auto  border-t border-gray-200">
+              <ul className=" flex max-h-max w-full cursor-pointer flex-col  space-y-1 overflow-y-auto  ">
                 <li className=" grid  w-full grid-cols-[64px_max-content] space-x-2 border-b border-gray-200  p-3 hover:bg-gray-200">
                   <Image alt="" src={courseImg} className=" h-16 w-16 " />
                   <div>
@@ -129,7 +127,7 @@ export default function Home() {
           visible={VisibleLeft}
           onHide={() => setVisibleLeft(false)}
         >
-          <div className="flex flex-col border-b border-gray-200 pb-2">
+          <div className="flex flex-col border-b border-gray-200  pb-2">
             <Link href="" className=" hover:text-indigo-700">
               Fazer Login
             </Link>
@@ -146,10 +144,10 @@ export default function Home() {
         </Sidebar>
       </aside>
 
-      <main className=" flex">
-        <div className=" mt-10 flex min-w-full flex-col items-center p-3  md:flex-row ">
+      <main className=" flex ">
+        <div className=" mt-10  flex  min-w-full flex-col items-center p-3  md:flex-row ">
           <div className="">
-            <h1 className=" text-4xl font-bold max-md:text-3xl">
+            <h1 className="  text-4xl font-bold max-md:text-3xl">
               Bem-vindo ao Estuda<span className=" text-indigo-700">+</span> -
               Sua plataforma de estudos aprimorada!
             </h1>
@@ -161,7 +159,7 @@ export default function Home() {
           <Image
             alt="learnImg"
             src={learnImg}
-            className=" w-[40%] max-md:w-3/4"
+            className=" w-[40%]  max-md:w-3/4"
           />
         </div>
       </main>
