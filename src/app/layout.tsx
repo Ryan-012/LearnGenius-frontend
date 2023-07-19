@@ -5,6 +5,7 @@ import 'primeicons/primeicons.css'
 import { ReactNode } from 'react'
 import './globals.css'
 import { Roboto_Flex as Roboto, Work_Sans as Work } from 'next/font/google'
+import ModalProvider from '@/contexts/modal'
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
 const work = Work({ subsets: ['latin'], variable: '--font-work' })
@@ -17,7 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${work.variable}  font-sans`}>
-        {children}
+        <ModalProvider>{children}</ModalProvider>
       </body>
     </html>
   )
