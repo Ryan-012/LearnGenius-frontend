@@ -32,7 +32,7 @@ export default function SideBar() {
     },
   ]
   return (
-    <aside className="grid  grid-cols-[max-content_30%_max-content] items-center justify-between gap-2 bg-white px-2 py-3 shadow-lg">
+    <aside className="grid grid-cols-[max-content_30%_max-content]  items-center justify-between gap-2 bg-white px-2 py-3 font-sans shadow-lg">
       <div className=" flex items-center justify-center  text-center md:space-x-4  lg:space-x-4">
         <span className=" text-3xl font-bold">
           Estuda<span className=" text-indigo-700">+</span>
@@ -45,26 +45,20 @@ export default function SideBar() {
           </HoverCardTrigger>
           <HoverCardContent className="mt-6 rounded bg-white">
             <ul className="grid grid-cols-2 gap-2">
-              <li className="cursor-pointer hover:text-indigo-700">
-                <Link href="/user/topic/front-end">Front-End</Link>
-              </li>
-              <li className="cursor-pointer hover:text-indigo-700">
-                <Link href="/user/topic/back-end">Back-End</Link>
-              </li>
-              <li className="cursor-pointer hover:text-indigo-700">
-                <Link href="/user/topic/mobile">Mobile</Link>
-              </li>
-              <li className="cursor-pointer hover:text-indigo-700">
-                <Link href="/user/topic/ui-design">UI & Design</Link>
-              </li>
-              <li className="cursor-pointer hover:text-indigo-700">
-                <Link href="/user/topic/data-science">Data Science</Link>
-              </li>
-              <li className="cursor-pointer hover:text-indigo-700">
-                <Link href="/user/topic/inteligencia-artificial">
-                  Inteligência Artificial
-                </Link>
-              </li>
+              {categories.map((category, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="cursor-pointer hover:text-indigo-700"
+                  >
+                    <CategoryLink
+                      key={index}
+                      text={category.text}
+                      href={category.href}
+                    />
+                  </li>
+                )
+              })}
             </ul>
           </HoverCardContent>
         </HoverCard>
@@ -85,7 +79,9 @@ export default function SideBar() {
               size={'icon'}
               variant={'icon'}
             >
-              <span className="absolute mb-6 ml-5  text-red-600">2</span>
+              <span className=" absolute  mb-8 font-sans text-sm  font-semibold">
+                2
+              </span>
             </Button>
           </HoverCardTrigger>
           <HoverCardContent className=" mt-6 flex flex-col space-y-4 rounded bg-white">

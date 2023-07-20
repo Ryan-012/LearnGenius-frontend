@@ -3,6 +3,7 @@ import Image from 'next/image'
 import learnImg from '@/assets/learn.jpg'
 import SideBar from '@/components/sidebar'
 import Main from '@/components/main'
+import TabView from '@/components/tab-view'
 
 export default function Home() {
   return (
@@ -30,10 +31,8 @@ export default function Home() {
             className=" w-[60%] min-w-[400px]  max-md:w-3/4"
           />
         </section>
-        <div className="h-[700px] bg-indigo-950">
-          <h2 className=" mt-10 text-center text-7xl font-bold text-white">
-            Teste
-          </h2>
+        <div className=" h-[700px]  bg-indigo-950">
+          <TabView />
         </div>
       </Main>
       <footer className=" absolute bottom-0 h-24 w-full bg-gray-900  text-lg text-white"></footer>
