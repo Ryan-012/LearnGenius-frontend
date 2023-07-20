@@ -43,9 +43,9 @@ export default function SignUp() {
         emailVerified: googleInfo?.email_verified || false,
       })
       .then((response) => {
-        const { access_token, refresh_token } = response.data
-        setCookie('access_token', access_token, { maxAge: 60 })
-        setCookie('refresh_token', refresh_token, { maxAge: 3600 })
+        const { accessToken, refreshToken } = response.data
+        setCookie('access_token', accessToken, { maxAge: 60 })
+        setCookie('refresh_token', refreshToken, { maxAge: 3600 })
         router.push('/')
       })
       .catch((err) => {

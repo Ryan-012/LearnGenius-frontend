@@ -3,7 +3,6 @@ import { Input } from './ui/input'
 import { ModalContext } from '@/contexts/modal'
 import Image from 'next/image'
 import courseImg from '@/assets/AI_IMAGE.png'
-import { ScrollPanel } from 'primereact/scrollpanel'
 
 export default function SearchModal() {
   const { modalState, closeModal } = useContext(ModalContext)

@@ -1,19 +1,19 @@
 'use client'
 
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Button } from './ui/button'
 
 import { Search } from 'lucide-react'
 import { ModalContext } from '@/contexts/modal'
 import SearchModal from './search-modal'
 export default function SearchBar() {
-  const [value, setValue] = useState<null | string>(null)
+  // const [value, setValue] = useState<null | string>(null)
   const { openModal, modalState } = useContext(ModalContext)
 
   return (
     <>
       <div
-        className=" mx-auto w-[270px] max-md:hidden"
+        className=" mx-auto w-[250px] max-md:hidden"
         onClick={() => openModal()}
       >
         <Button className="w-full rounded border border-gray-200 bg-transparent p-2 text-gray-400 shadow hover:bg-gray-50 hover:text-gray-500">
