@@ -76,5 +76,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animated")],
+  plugins: [require("tailwindcss-animate"),require("@material-tailwind/react/utils/withMT")],
 }

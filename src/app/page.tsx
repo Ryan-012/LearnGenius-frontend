@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <SideBar />
       <Main>
-        <section className=" mt-10  flex  min-w-full flex-col items-center p-3  md:flex-row ">
+        <section className=" mt-10  flex  min-w-full flex-col items-center p-3    md:flex-row ">
           <div className="space-y-7">
             <h1 className="  text-7xl font-extrabold max-md:text-4xl md:text-5xl">
               Bem-vindo ao Estuda<span className=" text-indigo-700">+</span> -
@@ -31,11 +31,11 @@ export default function Home() {
             className=" w-[60%] min-w-[400px]  max-md:w-3/4"
           />
         </section>
-        <div className=" h-[700px]  bg-indigo-950">
-          <TabView />
-        </div>
+
+        <TabView />
+        <section className="h-[400px] bg-white">test</section>
       </Main>
-      <footer className=" absolute bottom-0 h-24 w-full bg-gray-900  text-lg text-white"></footer>
+      {/* <footer className=" absolute bottom-0 h-24 w-full bg-gray-900  text-lg text-white"></footer> */}
       {/* Image by <a href="https://www.freepik.com/free-vector/online-certification-illustration_8703118.htm#page=2&query=learning%20platform&position=46&from_view=search&track=ais">Freepik</a> */}
     </>
   )
