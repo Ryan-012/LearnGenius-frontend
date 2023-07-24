@@ -16,7 +16,7 @@ export default function SearchBar() {
         className=" mx-auto w-[250px] max-md:hidden"
         onClick={() => openModal()}
       >
-        <Button className="w-full rounded border border-gray-200 bg-transparent p-2 text-gray-400 shadow hover:bg-gray-50 hover:text-gray-500">
+        <Button className="w-full rounded border border-gray-600 bg-transparent p-2 text-gray-300 shadow hover:border-gray-50  hover:text-gray-50">
           <Search className="mr-2 h-4 w-4 cursor-pointer" />O que você quer
           aprender?
         </Button>

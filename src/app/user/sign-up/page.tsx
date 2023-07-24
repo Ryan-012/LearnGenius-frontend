@@ -6,7 +6,7 @@ import Image from 'next/image'
 import btnGoogle from '@/assets/btn_google_light_normal_ios.svg'
 import btnGoogleHover from '@/assets/btn_google_light_pressed_ios.svg'
 import InputForm from '@/components/input-form'
-import waves from '@/assets/wave.svg'
+// import waves from '@/assets/wave.svg'
 import { api } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { setCookie } from 'cookies-next'
@@ -54,7 +54,7 @@ export default function SignUp() {
   }
 
   return (
-    <div className=" relative flex min-h-screen flex-col items-center justify-center font-sans  text-gray-800">
+    <div className=" relative flex min-h-screen flex-col items-center justify-center bg-white font-sans  text-gray-800">
       <form
         onSubmit={createUser}
         className=" absolute  flex min-h-screen w-full  max-w-lg  flex-col items-center  justify-center  space-y-3 rounded   "
@@ -111,7 +111,7 @@ export default function SignUp() {
           </span>
         </div>
       </form>
-      <Image className=" mt-auto  w-full  self-end" src={waves} alt="waves" />
+      {/* <Image className=" mt-auto  w-full  self-end" src={waves} alt="waves" /> */}
     </div>
   )
 }

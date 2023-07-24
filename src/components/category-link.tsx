@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+
 export default function CategoryLink({
   href,
   text,
@@ -10,7 +11,7 @@ export default function CategoryLink({
   key: number
 }) {
   return (
-    <Link href={href} className="hover:text-indigo-700">
+    <Link href={href} className="  text-gray-200 hover:text-[#FF4365]">
       {text}
     </Link>
   )
