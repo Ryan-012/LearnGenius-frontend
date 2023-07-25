@@ -1,28 +1,29 @@
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+
 export default function Carousel() {
   return (
-    <Slider
-      // autoplay={true}
-      className="mx-auto mt-10 h-[700px] w-[90%]   text-gray-50"
-      dots={true}
-      infinite={true}
-      speed={500}
-      autoplaySpeed={5000}
-      slidesToShow={1}
-      slidesToScroll={1}
+    <Swiper
+      navigation={true}
+      modules={[Navigation]}
+      className="mySwiper mb-10 h-[400px] max-w-full text-gray-50"
     >
-      <div className="">
-        <h3>1</h3>
-      </div>
-
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
-      </div>
-    </Slider>
+      <SwiperSlide className=" h-full w-full bg-red-500 text-center">
+        Slide 1
+      </SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+      <SwiperSlide>Slide 5</SwiperSlide>
+      <SwiperSlide>Slide 6</SwiperSlide>
+      <SwiperSlide>Slide 7</SwiperSlide>
+      <SwiperSlide>Slide 8</SwiperSlide>
+      <SwiperSlide>Slide 9</SwiperSlide>
+    </Swiper>
   )
 }
