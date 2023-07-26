@@ -9,7 +9,7 @@ export default function SearchModal() {
   return (
     <div className="fixed inset-0  z-50  flex h-full  w-full items-center justify-center backdrop-blur ">
       <div
-        className={` fixed grid max-h-[400px] min-h-[250px] w-[500px] grid-rows-[min-content_1fr] shadow-md shadow-gray-400 max-sm:w-[400px] ${
+        className={` fixed grid max-h-[400px] min-h-[250px] w-[500px] grid-rows-[min-content_1fr] shadow shadow-gray-400 max-sm:w-[400px] ${
           modalState
             ? 'animate-in fade-in-0 zoom-in-95  slide-in-from-top-[48%] duration-300'
             : 'slide-out-from-top-[48%] animate-out fade-out-0 zoom-out-95 duration-300'

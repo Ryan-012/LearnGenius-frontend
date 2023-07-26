@@ -33,10 +33,30 @@ export default function SideBar() {
   ]
   return (
     <aside className="grid grid-cols-[max-content_30%_max-content] items-center justify-between  gap-2 bg-[#09090a]  px-5 py-10  font-sans shadow-lg">
-      <div className=" flex items-center justify-center  text-center md:space-x-3  lg:space-x-3">
-        <span className=" font-alt text-3xl font-semibold text-gray-50 ">
+      <div className=" flex items-center justify-center text-center  text-gray-50 md:space-x-3  lg:space-x-3">
+        <Link href="/" className=" font-alt text-3xl font-semibold  ">
           Tech<span className="text-rose-500 ">Up</span>
-        </span>
+        </Link>
+        <HoverCard>
+          <HoverCardTrigger>
+            <span className=" cursor-pointer hover:text-rose-500 max-md:hidden">
+              categorias
+            </span>
+          </HoverCardTrigger>
+          <HoverCardContent className=" space-y-2 border-gray-600 bg-gray-900 p-4 ">
+            {categories.map((category, index) => {
+              return (
+                <div key={index} className="mx-auto w-[90%] text-start">
+                  <CategoryLink
+                    key={index}
+                    text={category.text}
+                    href={category.href}
+                  />
+                </div>
+              )
+            })}
+          </HoverCardContent>
+        </HoverCard>
       </div>
       <SearchBar />
 
@@ -59,7 +79,7 @@ export default function SideBar() {
               </span>
             </Button>
           </HoverCardTrigger>
-          <HoverCardContent className=" mt-6 flex flex-col space-y-4 rounded border border-gray-600 bg-gray-900 shadow-md">
+          <HoverCardContent className=" mt-6 flex flex-col space-y-4 rounded border border-gray-600 bg-gray-900 shadow">
             <ul className=" flex max-h-max w-full cursor-pointer flex-col  space-y-1 overflow-y-auto  ">
               <li className=" grid  w-full grid-cols-[64px_max-content] space-x-2 border-b border-gray-600  p-3 hover:bg-gray-800">
                 <Image alt="" src={courseImg} className=" h-16 w-16 " />
