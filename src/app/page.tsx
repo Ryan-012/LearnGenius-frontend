@@ -8,6 +8,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import WelcomeSection from '@/components/sections/welcome'
 import ResourceSection from '@/components/sections/resource'
+import FeedbackSection from '@/components/sections/feedback'
 export default function Home() {
   useEffect(() => {
     AOS.init({ duration: 1000 })
@@ -17,6 +18,7 @@ export default function Home() {
       <SideBar />
       <Main>
         <WelcomeSection />
+        <FeedbackSection />
         <ResourceSection />
         <CategoriesSection />
       </Main>

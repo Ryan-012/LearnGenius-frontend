@@ -9,11 +9,11 @@ import {
 
 export default function CategoriesSection() {
   return (
-    <section className="py-7" data-aos="fade-right">
-      <h2 className="text-center font-alt text-5xl text-rose-500">
+    <section className="px-5" data-aos="fade-right">
+      <h2 className="text-center font-alt text-5xl text-rose-500 max-xl:text-3xl max-md:text-2xl">
         Escolha a sua jornada
       </h2>
-      <div className="mx-auto mt-10 grid grid-cols-3 justify-items-center  gap-4 p-5 max-md:grid-cols-2  max-sm:grid-cols-1   xl:w-[70%] ">
+      <div className="mx-auto  grid grid-cols-3 justify-items-center  gap-4 p-5 max-md:grid-cols-2  max-sm:grid-cols-1   xl:w-[70%] ">
         <Card className=" max-w-[300px] cursor-pointer border-2 border-gray-600 bg-gray-900 duration-300 hover:border-cyan-400 hover:bg-gray-800">
           <CardHeader className=" space-y-3 font-alt text-gray-200">
             <CardTitle className=" text-cyan-400">

@@ -5,7 +5,14 @@ import { ChevronsDown } from 'lucide-react'
 
 export default function WelcomeSection() {
   return (
-    <section className="  space-y-7 ">
+    <section
+      data-aos="fade-up"
+      className="relative space-y-7 overflow-hidden px-5"
+    >
+      <span
+        data-aos="fade-left"
+        className="absolute bottom-0 right-5 h-[3px] w-[100px] bg-rose-500 transition-all  duration-300  hover:bg-gray-50"
+      ></span>
       <div
         // data-aos="fade-up"
         className=" mt-3 flex  min-w-full flex-col items-center  bg-gray-950 p-5    text-rose-500 xl:flex-row"
@@ -23,10 +30,7 @@ export default function WelcomeSection() {
         <Image src={futureImg} alt="" className=" w-[600px] self-end " />
       </div>
 
-      <ChevronsDown
-        data-aos="fade-up"
-        className=" mx-auto h-10 w-10 animate-bounce text-rose-500"
-      />
+      <ChevronsDown className=" mx-auto h-10 w-10 animate-bounce text-rose-500" />
 
       <div className="grid grid-cols-2 space-x-4 space-y-5 p-5 text-gray-200   max-md:grid-cols-1">
         <div className="" data-aos="zoom-in-down">

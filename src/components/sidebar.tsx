@@ -80,7 +80,7 @@ export default function SideBar() {
             </Button>
           </HoverCardTrigger>
           <HoverCardContent className=" mt-6 flex flex-col space-y-4 rounded border border-gray-600 bg-gray-900 shadow">
-            <ul className=" flex max-h-max w-full cursor-pointer flex-col  space-y-1 overflow-y-auto  ">
+            <ul className=" flex max-h-max w-full cursor-pointer flex-col  space-y-1 overflow-y-auto">
               <li className=" grid  w-full grid-cols-[64px_max-content] space-x-2 border-b border-gray-600  p-3 hover:bg-gray-800">
                 <Image alt="" src={courseImg} className=" h-16 w-16 " />
                 <div>

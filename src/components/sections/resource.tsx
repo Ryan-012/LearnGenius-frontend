@@ -34,9 +34,9 @@ const reasons = [
 ]
 export default function ResourceSection() {
   return (
-    <div
+    <section
       data-aos="fade-up"
-      className=" space-y-6 py-5  text-center  text-gray-50"
+      className="  space-y-6 px-5   text-center  text-gray-50"
     >
       <h2 className="font-alt text-5xl text-rose-500 max-xl:text-3xl max-md:text-2xl">
         Por que escolher a <span className="text-gray-50">Tech</span>Up?
@@ -48,7 +48,7 @@ export default function ResourceSection() {
               className=" cursor-default space-y-6 border-none bg-transparent p-4 text-start text-gray-50 shadow-none  duration-300 hover:bg-gray-800"
               key={index}
             >
-              <CardHeader className=" space-y-4 bg-transparent shadow-none">
+              <CardHeader className=" space-y-4 bg-transparent p-0 shadow-none">
                 <Image
                   width={200}
                   height={200}
@@ -67,6 +67,6 @@ export default function ResourceSection() {
           )
         })}
       </div>
-    </div>
+    </section>
   )
 }
