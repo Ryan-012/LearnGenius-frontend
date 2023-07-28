@@ -9,7 +9,11 @@ import {
 
 export default function CategoriesSection() {
   return (
-    <section className="px-5" data-aos="fade-right">
+    <section className="relative space-y-6 px-5" data-aos="fade-right">
+      <span
+        data-aos="fade-left"
+        className="absolute bottom-0 right-5 h-[3px] w-[100px] bg-rose-500 transition-all   duration-300  hover:bg-gray-50"
+      ></span>
       <h2 className="text-center font-alt text-5xl text-rose-500 max-xl:text-3xl max-md:text-2xl">
         Escolha a sua jornada
       </h2>

@@ -7,15 +7,15 @@ export default function WelcomeSection() {
   return (
     <section
       data-aos="fade-up"
-      className="relative space-y-7 overflow-hidden px-5"
+      className="relative space-y-7 px-5  max-sm:space-y-0"
     >
       <span
         data-aos="fade-left"
-        className="absolute bottom-0 right-5 h-[3px] w-[100px] bg-rose-500 transition-all  duration-300  hover:bg-gray-50"
+        className="absolute bottom-0 right-5 h-[3px] w-[100px] bg-rose-500 transition-all   duration-300  hover:bg-gray-50"
       ></span>
       <div
         // data-aos="fade-up"
-        className=" mt-3 flex  min-w-full flex-col items-center  bg-gray-950 p-5    text-rose-500 xl:flex-row"
+        className=" mt-3 flex min-w-full  flex-col items-center bg-gray-950  p-5 text-rose-500     xl:flex-row"
       >
         <div className="space-y-7">
           <h1 className="font-alt font-extrabold max-xl:text-5xl max-md:text-4xl xl:text-7xl ">

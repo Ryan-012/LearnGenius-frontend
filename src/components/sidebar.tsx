@@ -32,7 +32,7 @@ export default function SideBar() {
     },
   ]
   return (
-    <aside className="grid grid-cols-[max-content_30%_max-content] items-center justify-between  gap-2 bg-[#09090a]  px-5 py-10  font-sans shadow-lg">
+    <aside className="grid grid-cols-[max-content_30%_max-content] items-center justify-between  gap-2 bg-[#09090a]  px-5 py-10 font-sans  shadow-lg max-sm:py-7">
       <div className=" flex items-center justify-center text-center  text-gray-50 md:space-x-3  lg:space-x-3">
         <Link href="/" className=" font-alt text-3xl font-semibold  ">
           Tech<span className="text-rose-500 ">Up</span>

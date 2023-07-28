@@ -11,7 +11,11 @@ export default function CategoryLink({
   key: number
 }) {
   return (
-    <Link href={href} className="  text-gray-200 hover:text-rose-500">
+    <Link
+      key={key}
+      href={href}
+      className="  text-base text-gray-200 hover:text-rose-500"
+    >
       {text}
     </Link>
   )
