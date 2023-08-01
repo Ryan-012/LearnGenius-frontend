@@ -12,7 +12,7 @@ export default function InputForm(InputProps: InputProps) {
       required={true}
       placeholder={InputProps.placeholder}
       defaultValue={InputProps.defaultValue}
-      className="w-full rounded border p-2 outline-none transition duration-200 hover:border-indigo-700 hover:shadow hover:shadow-indigo-700  "
+      className="w-full rounded border p-2 outline-none transition duration-200 hover:border-rose-500 hover:shadow hover:shadow-rose-500  "
     />
   )
 }

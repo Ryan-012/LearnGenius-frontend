@@ -69,9 +69,6 @@ export default function SearchModal() {
               <span className="font-bold text-gray-50">R$25.90</span>
             </div>
           </li>
-          {/* <span className=" my-auto self-center p-3"> */}
-          {/* Nenhum curso encontrado. */}
-          {/* </span> */}
         </ul>
       </div>
     </div>

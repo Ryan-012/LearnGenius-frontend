@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import CategoryLink from './category-link'
+import { CategoryLink } from './CategoryLink/index'
 
 const categories = [
   { href: '/user/topic/front-end', text: 'Front-End' },
@@ -61,11 +61,9 @@ export default function Footer() {
 
           {categories.map((category, index) => {
             return (
-              <CategoryLink
-                href={category.href}
-                text={category.text}
-                key={index}
-              />
+              <CategoryLink.Root href={category.href} key={index}>
+                <CategoryLink.Content text={category.text} />
+              </CategoryLink.Root>
             )
           })}
         </div>

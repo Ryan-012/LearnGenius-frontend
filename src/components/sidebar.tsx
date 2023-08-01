@@ -13,7 +13,8 @@ import { useContext, useState } from 'react'
 import { ModalContext } from '@/contexts/modal'
 import { getCookie } from 'cookies-next'
 import { Sidebar } from 'primereact/sidebar'
-import CategoryLink from './category-link'
+import { Atom, Brain, Code, Eye, Smartphone, Terminal } from 'lucide-react'
+import { CategoryLink } from './CategoryLink/index'
 
 export default function SideBar() {
   const token = getCookie('access_token')
@@ -21,14 +22,15 @@ export default function SideBar() {
   const [VisibleLeft, setVisibleLeft] = useState(false)
 
   const categories = [
-    { href: '/user/topic/front-end', text: 'Front-End' },
-    { href: '/user/topic/back-end', text: 'Back-End' },
-    { href: '/user/topic/mobile', text: 'Mobile' },
-    { href: '/user/topic/ui&design', text: 'UI & Design' },
-    { href: '/user/topic/data-science', text: 'Data Science' },
+    { href: '/user/topic/front-end', text: 'Front-End', icon: Code },
+    { href: '/user/topic/back-end', text: 'Back-End', icon: Terminal },
+    { href: '/user/topic/mobile', text: 'Mobile', icon: Smartphone },
+    { href: '/user/topic/ui&design', text: 'UI & Design', icon: Eye },
+    { href: '/user/topic/data-science', text: 'Data Science', icon: Atom },
     {
       href: '/user/topic/inteligencia-artificial',
       text: 'Inteligência Artificial',
+      icon: Brain,
     },
   ]
   return (
@@ -47,11 +49,10 @@ export default function SideBar() {
             {categories.map((category, index) => {
               return (
                 <div key={index} className="mx-auto w-[90%] text-start">
-                  <CategoryLink
-                    key={index}
-                    text={category.text}
-                    href={category.href}
-                  />
+                  <CategoryLink.Root key={index} href={category.href}>
+                    <CategoryLink.Icon icon={category.icon} />
+                    <CategoryLink.Content text={category.text} />
+                  </CategoryLink.Root>
                 </div>
               )
             })}
@@ -60,7 +61,7 @@ export default function SideBar() {
       </div>
       <SearchBar />
 
-      <div className="  space-x-3">
+      <div className="  flex items-center space-x-3">
         <Button
           onClick={() => openModal()}
           className="pi pi-search md:hidden lg:hidden"
@@ -70,7 +71,7 @@ export default function SideBar() {
         <HoverCard>
           <HoverCardTrigger>
             <Button
-              className="pi pi-shopping-cart text-gray-50 duration-200  hover:text-[#FF4365]"
+              className="pi pi-shopping-cart text-gray-50 duration-200  hover:text-rose-500"
               size={'icon'}
               variant={'icon'}
             >
@@ -79,7 +80,7 @@ export default function SideBar() {
               </span>
             </Button>
           </HoverCardTrigger>
-          <HoverCardContent className=" mt-6 flex flex-col space-y-4 rounded border border-gray-600 bg-gray-900 shadow">
+          <HoverCardContent className=" mr-6 mt-6 flex flex-col space-y-4 rounded border border-gray-600 bg-gray-900 shadow">
             <ul className=" flex max-h-max w-full cursor-pointer flex-col  space-y-1 overflow-y-auto">
               <li className=" grid  w-full grid-cols-[64px_max-content] space-x-2 border-b border-gray-600  p-3 hover:bg-gray-800">
                 <Image alt="" src={courseImg} className=" h-16 w-16 " />
@@ -122,10 +123,8 @@ export default function SideBar() {
         </HoverCard>
 
         {token ? (
-          <Profile />
-        ) : (
           <>
-            <Button className=" hover:text-rose-500 max-md:hidden" asChild>
+            <Button className=" hover:text-rose-500 max-md:hidden " asChild>
               <Link href="/user/sign-in">Fazer login</Link>
             </Button>
             <Button
@@ -135,6 +134,8 @@ export default function SideBar() {
               <Link href="/user/sign-up">Cadastrar-se</Link>
             </Button>
           </>
+        ) : (
+          <Profile />
         )}
       </div>
       <Button
@@ -162,11 +163,14 @@ export default function SideBar() {
             Categorias
           </span>
           {categories.map((category, index) => (
-            <CategoryLink
-              key={index}
-              href={category.href}
-              text={category.text}
-            />
+            // <CategoryLink
+            //   key={index}
+            //   href={category.href}
+            //   text={category.text}
+            // />
+            <CategoryLink.Root key={index} href={category.href}>
+              <CategoryLink.Content text={category.text} />
+            </CategoryLink.Root>
           ))}
         </div>
       </Sidebar>

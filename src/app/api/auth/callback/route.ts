@@ -12,9 +12,10 @@ export async function GET(request: NextRequest) {
     grant_type: 'authorization_code',
     redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI,
   })
+
   const googleToken = response.data.id_token
 
-  return NextResponse.redirect(`http://localhost:3000/user/signUp`, {
+  return NextResponse.redirect(`http://localhost:3000/user/sign-up`, {
     headers: {
       'Set-Cookie': `googleInfo=${googleToken}; Path=/; max-age=1800`,
     },

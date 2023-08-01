@@ -60,7 +60,7 @@ export default function SignUp() {
         className=" absolute  flex min-h-screen w-full  max-w-lg  flex-col items-center  justify-center  space-y-3 rounded   "
       >
         <div className=" flex w-full flex-col items-center  justify-center space-y-3 max-sm:w-fit">
-          <h2 className=" self-start text-5xl max-sm:text-4xl sm:mb-7">
+          <h2 className=" self-start font-alt text-5xl text-rose-500 max-sm:text-4xl sm:mb-7">
             Crie sua conta
           </h2>
 
@@ -93,10 +93,13 @@ export default function SignUp() {
               height={4}
               alt=""
             />
-            <span className=" font-alt">Faça login com o Google</span>
+            <span className="">Faça login com o Google</span>
           </a>
 
-          <Button type="submit" className="min-w-[250px]">
+          <Button
+            type="submit"
+            className="min-w-[250px] rounded-none border border-rose-500 bg-rose-500 font-alt text-gray-900   hover:border hover:border-rose-500 hover:bg-transparent hover:text-rose-500"
+          >
             cadastrar-se
           </Button>
 
@@ -104,7 +107,7 @@ export default function SignUp() {
             Já possui uma conta?{' '}
             <a
               href="/"
-              className=" transition duration-200 hover:text-gray-200"
+              className=" transition duration-200 hover:text-rose-500"
             >
               Acessar
             </a>
