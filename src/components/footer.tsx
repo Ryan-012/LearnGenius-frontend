@@ -28,31 +28,43 @@ export default function Footer() {
         <div id="social_networks" className=" space-x-3 self-end">
           <Link
             href="https://github.com/Ryan-012"
-            className="pi pi-github transition-all duration-300 hover:text-rose-500"
+            className="pi pi-github  duration-200 hover:text-rose-500"
           />
           <Link
             href=""
-            className="pi pi-instagram transition-all duration-300 hover:text-rose-500"
+            className="pi pi-instagram  duration-200 hover:text-rose-500"
           />
           <Link
             href="https://www.linkedin.com/in/ryanaragao012/"
-            className="pi pi-linkedin transition-all duration-300 hover:text-rose-500"
+            className="pi pi-linkedin  duration-200 hover:text-rose-500"
           />
         </div>
       </div>
       <div className="grid grid-cols-3 gap-2  max-sm:grid-cols-2">
         <div className="flex flex-col space-y-2">
           <h2>Institucional</h2>
-          <Link href="" className="text-base text-gray-200 hover:text-rose-500">
+          <Link
+            href=""
+            className="text-base text-gray-200 duration-200 hover:text-rose-500"
+          >
             Sobre nós
           </Link>
-          <Link href="" className="text-base text-gray-200 hover:text-rose-500">
+          <Link
+            href=""
+            className="text-base text-gray-200 duration-200 hover:text-rose-500"
+          >
             Trabalhe conosco
           </Link>
-          <Link href="" className="text-base text-gray-200 hover:text-rose-500">
+          <Link
+            href=""
+            className="text-base text-gray-200 duration-200 hover:text-rose-500"
+          >
             Política de privacidade
           </Link>
-          <Link href="" className="text-base text-gray-200 hover:text-rose-500">
+          <Link
+            href=""
+            className="text-base text-gray-200 duration-200 hover:text-rose-500"
+          >
             Termos de uso
           </Link>
         </div>
@@ -70,13 +82,13 @@ export default function Footer() {
         <div className="flex flex-col space-y-2 ">
           <h2>Fale conosco</h2>
           <Link
-            className="text-base text-gray-200 hover:text-rose-500"
+            className="text-base text-gray-200 duration-200 hover:text-rose-500"
             href="/contact"
           >
             Email e telefone
           </Link>
           <Link
-            className="text-base text-gray-200 hover:text-rose-500"
+            className="text-base text-gray-200 duration-200 hover:text-rose-500"
             href="/"
           >
             Perguntas frequentes

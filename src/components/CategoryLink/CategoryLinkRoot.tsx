@@ -1,23 +1,26 @@
 import Link from 'next/link'
-import { ReactNode, LinkHTMLAttributes } from 'react'
+import { ReactNode, AnchorHTMLAttributes } from 'react'
+import { twMerge } from 'tailwind-merge'
 
-interface CategoryLinkRootProps extends LinkHTMLAttributes<HTMLLinkElement> {
+interface CategoryLinkRootProps
+  extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode
   href: string
-  key: number
 }
 export default function CategoryLinkRoot({
   children,
   href,
-  key,
+
   ...rest
 }: CategoryLinkRootProps) {
   return (
     <Link
       {...rest}
-      key={key}
       href={href}
-      className=" flex   text-base text-gray-200 hover:text-rose-500"
+      className={twMerge(
+        ' flex space-x-2 text-base  text-gray-200 duration-200 hover:text-rose-500',
+        rest.className,
+      )}
     >
       {children}
     </Link>

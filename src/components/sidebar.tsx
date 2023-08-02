@@ -34,8 +34,8 @@ export default function SideBar() {
     },
   ]
   return (
-    <aside className="grid grid-cols-[max-content_30%_max-content] items-center justify-between  gap-2 bg-[#09090a]  px-5 py-10 font-sans  shadow-lg max-sm:py-7">
-      <div className=" flex items-center justify-center text-center  text-gray-50 md:space-x-3  lg:space-x-3">
+    <aside className=" grid grid-cols-[30%_30%_30%] items-center justify-between  gap-2 bg-[#09090a]  px-5 py-10 font-sans  shadow-lg max-sm:py-7">
+      <div className=" flex items-center  text-center  text-gray-50 md:space-x-3  lg:space-x-3">
         <Link href="/" className=" font-alt text-3xl font-semibold  ">
           Tech<span className="text-rose-500 ">Up</span>
         </Link>
@@ -61,7 +61,7 @@ export default function SideBar() {
       </div>
       <SearchBar />
 
-      <div className="  flex items-center space-x-3">
+      <div className="  flex  items-center justify-end space-x-3">
         <Button
           onClick={() => openModal()}
           className="pi pi-search md:hidden lg:hidden"
@@ -123,6 +123,8 @@ export default function SideBar() {
         </HoverCard>
 
         {token ? (
+          <Profile />
+        ) : (
           <>
             <Button className=" hover:text-rose-500 max-md:hidden " asChild>
               <Link href="/user/sign-in">Fazer login</Link>
@@ -134,8 +136,6 @@ export default function SideBar() {
               <Link href="/user/sign-up">Cadastrar-se</Link>
             </Button>
           </>
-        ) : (
-          <Profile />
         )}
       </div>
       <Button
