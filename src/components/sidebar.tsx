@@ -163,11 +163,6 @@ export default function SideBar() {
             Categorias
           </span>
           {categories.map((category, index) => (
-            // <CategoryLink
-            //   key={index}
-            //   href={category.href}
-            //   text={category.text}
-            // />
             <CategoryLink.Root key={index} href={category.href}>
               <CategoryLink.Content text={category.text} />
             </CategoryLink.Root>

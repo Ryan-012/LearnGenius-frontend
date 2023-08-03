@@ -3,5 +3,5 @@ interface FormActionsProps {
   children: ReactNode
 }
 export default function FormActions({ children }: FormActionsProps) {
-  return <div>{children}</div>
+  return <div className=" flex justify-center space-y-3 p-3">{children}</div>
 }

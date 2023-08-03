@@ -81,7 +81,7 @@ export default function SignUp() {
 
         <div className=" flex flex-col items-center space-y-4">
           <a
-            href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&redirect_uri=http://localhost:3000/api/auth/callback&response_type=code&scope=email profile`}
+            href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_DOMAIN}/api/auth/sign-in/callback&response_type=code&scope=email profile`}
             className="flex  min-w-[250px] items-center justify-center pr-2  hover:bg-gray-50"
             onMouseOver={() => setIsHovered(true)}
             onMouseOut={() => setIsHovered(false)}
