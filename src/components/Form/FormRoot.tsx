@@ -7,7 +7,7 @@ export default function FormRoot({ children, ...rest }: FormRootProps) {
   return (
     <form
       {...rest}
-      className={twMerge(' grid grid-rows-3 bg-gray-900', rest.className)}
+      className={twMerge(' flex flex-col  bg-gray-900', rest.className)}
     >
       {children}
     </form>

@@ -4,9 +4,7 @@ import jwtDecode from 'jwt-decode'
 import { FormEvent, useEffect, useState } from 'react'
 import Image from 'next/image'
 import btnGoogle from '@/assets/btn_google_light_normal_ios.svg'
-import btnGoogleHover from '@/assets/btn_google_light_pressed_ios.svg'
 import InputForm from '@/components/input-form'
-// import waves from '@/assets/wave.svg'
 import { api } from '@/lib/api'
 import { useRouter } from 'next/navigation'
 import { setCookie } from 'cookies-next'
@@ -19,7 +17,7 @@ type googleInfo = {
 export default function SignUp() {
   const router = useRouter()
   const token = Cookie.get('googleInfo')
-  const [isHovered, setIsHovered] = useState(false)
+  // const [isHovered, setIsHovered] = useState(false)
   const [googleInfo, setGoogleInfo] = useState<undefined | googleInfo>(
     undefined,
   )
@@ -82,13 +80,11 @@ export default function SignUp() {
         <div className=" flex flex-col items-center space-y-4">
           <a
             href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_DOMAIN}/api/auth/sign-in/callback&response_type=code&scope=email profile`}
-            className="flex  min-w-[250px] items-center justify-center pr-2  hover:bg-gray-50"
-            onMouseOver={() => setIsHovered(true)}
-            onMouseOut={() => setIsHovered(false)}
+            className="flex  min-w-[250px] items-center justify-center pr-2  "
           >
             <Image
               className=" h-10 w-10"
-              src={isHovered ? btnGoogleHover : btnGoogle}
+              src={btnGoogle}
               width={4}
               height={4}
               alt=""

@@ -1,6 +1,10 @@
 import { api, apiGoogle } from '@/lib/api'
 import { NextRequest, NextResponse } from 'next/server'
 import jwtDecode from 'jwt-decode'
+interface DecodedToken {
+  email: string
+  // Outros campos do token, se houver
+}
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const code = searchParams.get('code')
@@ -14,17 +18,16 @@ export async function GET(request: NextRequest) {
   })
 
   const googleToken = response.data.id_token
-  const { email } = jwtDecode(googleToken)
+  const { email } = jwtDecode<DecodedToken>(googleToken)
 
-  const checkRegisteredEmail = await api.get('/auth/sign-in-google', {
+  const checkRegisteredEmail = await api.post('/auth/sign-in-google', {
     email,
   })
+  const { access_token, refresh_token } = checkRegisteredEmail.data
 
-  console.log(checkRegisteredEmail.data)
-
-  return NextResponse.redirect(`http://localhost:3000/user/sign-up`, {
+  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_DOMAIN}`, {
     headers: {
-      'Set-Cookie': `googleInfo=${googleToken}; Path=/; max-age=1800`,
+      'Set-Cookie': `access_token=${access_token}; Path=/; max-age=60, refresh_token=${refresh_token}; Path=/; max-age=3600`,
     },
   })
 }

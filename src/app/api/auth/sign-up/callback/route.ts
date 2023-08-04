@@ -15,9 +15,12 @@ export async function GET(request: NextRequest) {
 
   const googleToken = response.data.id_token
 
-  return NextResponse.redirect(`http://localhost:3000/user/sign-up`, {
-    headers: {
-      'Set-Cookie': `googleInfo=${googleToken}; Path=/; max-age=1800`,
+  return NextResponse.redirect(
+    `${process.env.NEXT_PUBLIC_DOMAIN}/user/sign-up`,
+    {
+      headers: {
+        'Set-Cookie': `googleInfo=${googleToken}; Path=/; max-age=1800`,
+      },
     },
-  })
+  )
 }

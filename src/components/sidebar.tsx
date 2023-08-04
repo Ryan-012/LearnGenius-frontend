@@ -1,3 +1,4 @@
+'use client'
 import {
   HoverCard,
   HoverCardTrigger,
@@ -11,16 +12,15 @@ import { Button } from './ui/button'
 import Image from 'next/image'
 import { useContext, useState } from 'react'
 import { ModalContext } from '@/contexts/modal'
-import { getCookie } from 'cookies-next'
 import { Sidebar } from 'primereact/sidebar'
 import { Atom, Brain, Code, Eye, Smartphone, Terminal } from 'lucide-react'
 import { CategoryLink } from './CategoryLink/index'
+import Cookies from 'js-cookie'
 
 export default function SideBar() {
-  const token = getCookie('access_token')
   const { openModal } = useContext(ModalContext)
   const [VisibleLeft, setVisibleLeft] = useState(false)
-
+  const token = Cookies.get('access_token')
   const categories = [
     { href: '/user/topic/front-end', text: 'Front-End', icon: Code },
     { href: '/user/topic/back-end', text: 'Back-End', icon: Terminal },

@@ -1,4 +1,5 @@
 // import { getUser } from '@/lib/auth'
+'use client'
 
 import { Book, LogOut, Server, ShoppingCart } from 'lucide-react'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card'
@@ -30,7 +31,10 @@ export default function Profile() {
             <CategoryLink.Icon icon={ShoppingCart} />
             <CategoryLink.Content text="Carrinho" />
           </CategoryLink.Root>
-          <CategoryLink.Root href="/">
+          <CategoryLink.Root
+            href="/api/auth/sign-in/logout"
+            onClick={() => console.log('test')}
+          >
             <CategoryLink.Icon icon={LogOut} />
             <CategoryLink.Content text="Sair" />
           </CategoryLink.Root>
