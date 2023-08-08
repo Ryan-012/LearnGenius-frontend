@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { api } from '@/lib/api'
 // import { setCookie } from 'cookies-next'
 
 export async function middleware(req: NextRequest) {
@@ -8,10 +7,16 @@ export async function middleware(req: NextRequest) {
 
   if (req.nextUrl.pathname === '/' && !access_token) {
     if (refresh_token) {
-      console.log(refresh_token)
-      const response = await api.get(`/auth/refresh-token/${refresh_token}`)
-      console.log(response.data)
+      return NextResponse.redirect(
+        `http://localhost:3000/api/auth/refresh-token?refresh-token=${refresh_token}`,
+      )
     }
-    return NextResponse.next()
+    return NextResponse.redirect(
+      `${process.env.NEXT_PUBLIC_DOMAIN}/user/sign-in`,
+    )
   }
+  return NextResponse.next()
+}
+export const config = {
+  matcher: ['/'],
 }

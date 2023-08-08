@@ -1,6 +1,5 @@
-// import { getUser } from '@/lib/auth'
 'use client'
-
+import { getUser } from '@/lib/auth'
 import { Book, LogOut, Server, ShoppingCart } from 'lucide-react'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card'
 
@@ -8,12 +7,17 @@ import { Avatar, AvatarFallback } from './ui/avatar'
 import { CategoryLink } from './CategoryLink'
 
 export default function Profile() {
+  const user = getUser()
+  const names = user.name.split(' ')
+  const firstNameInitial = names[0][0]
+  const lastNameInitial = names.length > 1 ? names[names.length - 1][0] : ''
+
   return (
     <HoverCard>
       <HoverCardTrigger>
         <Avatar className=" cursor-default ">
           <AvatarFallback className="border-2 border-gray-600 bg-gray-900 text-gray-200 duration-200 hover:text-gray-50">
-            RA
+            {firstNameInitial + lastNameInitial}
           </AvatarFallback>
         </Avatar>
       </HoverCardTrigger>
