@@ -14,7 +14,7 @@ export default function Profile() {
 
   return (
     <HoverCard>
-      <HoverCardTrigger>
+      <HoverCardTrigger className="max-md:hidden">
         <Avatar className=" cursor-default ">
           <AvatarFallback className="border-2 border-gray-600 bg-gray-900 text-gray-200 duration-200 hover:text-gray-50">
             {firstNameInitial + lastNameInitial}

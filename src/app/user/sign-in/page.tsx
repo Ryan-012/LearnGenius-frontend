@@ -16,7 +16,7 @@ import { Toast } from 'primereact/toast'
 
 export default function SignIn() {
   const toast = useRef<Toast>(null)
-  const route = useRouter()
+  const router = useRouter()
 
   const showError = (message: string, content: string) => {
     toast.current?.show({
@@ -26,6 +26,7 @@ export default function SignIn() {
       life: 2000,
     })
   }
+
   async function signIn(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
@@ -37,9 +38,10 @@ export default function SignIn() {
       })
       .then((res) => {
         const { access_token, refresh_token } = res.data
+
         setCookie('access_token', access_token, { maxAge: 60 })
         setCookie('refresh_token', refresh_token, { maxAge: 3600 })
-        route.push('/')
+        router.push('/')
       })
       .catch((err) => {
         showError(err.response.data.error, err.response.data.message)
@@ -48,9 +50,11 @@ export default function SignIn() {
   return (
     <>
       <Form.Root
+        // data-aos="fade-right"
         onSubmit={signIn}
-        className="mx-auto  h-[460px]  w-[480px] space-y-5   self-center max-sm:w-[90%]"
+        className="relative mx-auto  h-[460px]  w-[480px] space-y-5   self-center max-sm:w-[90%]"
       >
+        <Form.Title text="Faça seu login" />
         <Form.Content>
           <Input
             type="email"
@@ -88,13 +92,10 @@ export default function SignIn() {
             />
             <span className="">Faça login com o Google</span>
           </a>
-          <Button
-            type="submit"
-            className=" w-[230px] rounded-none border border-rose-500 bg-rose-500 font-alt text-gray-900   hover:border hover:border-rose-500 hover:bg-transparent hover:text-rose-500 "
-          >
+          <Button type="submit" className=" w-[230px] " variant="primary">
             Entrar
           </Button>
-          <CategoryLink.Root href="/user/sign-up">
+          <CategoryLink.Root href="/user/sign-up" className=" text-gray-50">
             <CategoryLink.Icon icon={UserPlus} />
             <CategoryLink.Content text="Ainda não tem uma conta? Crie agora!" />
           </CategoryLink.Root>

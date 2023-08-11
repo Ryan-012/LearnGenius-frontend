@@ -3,7 +3,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import jwtDecode from 'jwt-decode'
 interface DecodedToken {
   email: string
-  // Outros campos do token, se houver
+  email_verified: boolean
+  name: string
+  picture: string
 }
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
@@ -18,8 +20,8 @@ export async function GET(request: NextRequest) {
   })
 
   const googleToken = response.data.id_token
-  const { email } = jwtDecode<DecodedToken>(googleToken)
-
+  const { email, picture } = jwtDecode<DecodedToken>(googleToken)
+  console.log(picture)
   const checkRegisteredEmail = await api.post('/auth/sign-in-google', {
     email,
   })

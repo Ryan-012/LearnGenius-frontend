@@ -12,15 +12,14 @@ export default function SearchBar() {
 
   return (
     <>
-      <div
-        className=" mx-auto w-[250px] max-md:hidden"
+      <Button
         onClick={() => openModal()}
+        className="mx-auto w-[220px]  rounded border border-gray-600 bg-transparent p-2 text-gray-300 shadow hover:border-gray-50 hover:text-gray-50  max-md:hidden"
       >
-        <Button className="w-full rounded border border-gray-600 bg-transparent p-2 text-gray-300 shadow hover:border-gray-50  hover:text-gray-50">
-          <Search className="mr-2 h-4 w-4 cursor-pointer" />O que você quer
-          aprender?
-        </Button>
-      </div>
+        <Search className="mr-2 h-4 w-4 cursor-pointer" />O que você quer
+        aprender?
+      </Button>
+
       {modalState && <SearchModal />}
     </>
   )

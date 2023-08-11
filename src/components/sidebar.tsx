@@ -34,14 +34,14 @@ export default function SideBar() {
     },
   ]
   return (
-    <aside className=" grid grid-cols-[30%_30%_30%] items-center justify-between  gap-2 bg-[#09090a]  px-5 py-10 font-sans  shadow-lg max-sm:py-7">
-      <div className=" flex items-center  text-center  text-gray-50 md:space-x-3  lg:space-x-3">
-        <Link href="/" className=" font-alt text-3xl font-semibold  ">
+    <aside className=" grid grid-cols-[25%_30%_30%] items-center justify-between  gap-2 bg-[#09090a]  px-5 py-10 font-sans  shadow-lg max-sm:py-7">
+      <div className=" flex self-center  text-center  text-gray-50  max-md:mx-auto md:space-x-3  lg:space-x-3">
+        <Link href="/" className="  font-alt text-3xl font-semibold  ">
           Tech<span className="text-rose-500 ">Up</span>
         </Link>
         <HoverCard>
-          <HoverCardTrigger>
-            <span className=" cursor-pointer hover:text-rose-500 max-md:hidden">
+          <HoverCardTrigger className="self-center">
+            <span className=" cursor-pointer  hover:text-rose-500 max-md:hidden">
               categorias
             </span>
           </HoverCardTrigger>
@@ -61,7 +61,7 @@ export default function SideBar() {
       </div>
       <SearchBar />
 
-      <div className="  flex  items-center justify-end space-x-3">
+      <div className="  flex   items-center justify-end space-x-3">
         <Button
           onClick={() => openModal()}
           className="pi pi-search md:hidden lg:hidden"
@@ -71,7 +71,7 @@ export default function SideBar() {
         <HoverCard>
           <HoverCardTrigger>
             <Button
-              className="pi pi-shopping-cart text-gray-50 duration-200  hover:text-rose-500"
+              className="pi pi-shopping-cart ml-0 text-gray-50 duration-200  hover:text-rose-500"
               size={'icon'}
               variant={'icon'}
             >
@@ -126,12 +126,16 @@ export default function SideBar() {
           <Profile />
         ) : (
           <>
-            <Button className=" hover:text-rose-500 max-md:hidden " asChild>
+            <Button
+              className=" min-w-[90px] p-0 text-gray-50 hover:text-rose-500 max-md:hidden "
+              asChild
+            >
               <Link href="/user/sign-in">Fazer login</Link>
             </Button>
             <Button
-              className=" rounded-none border border-rose-500 bg-rose-500 font-alt text-gray-900   hover:border hover:border-rose-500 hover:bg-transparent hover:text-rose-500 max-md:hidden"
+              className="  min-w-[130px] max-md:hidden"
               asChild
+              variant="primary"
             >
               <Link href="/user/sign-up">Cadastrar-se</Link>
             </Button>

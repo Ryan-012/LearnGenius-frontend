@@ -11,6 +11,7 @@ export async function middleware(req: NextRequest) {
         `http://localhost:3000/api/auth/refresh-token?refresh-token=${refresh_token}`,
       )
     }
+
     return NextResponse.redirect(
       `${process.env.NEXT_PUBLIC_DOMAIN}/user/sign-in`,
     )
