@@ -1,10 +1,12 @@
 'use client'
 import Main from '@/components/main'
-import CategoryHeader from '@/components/sections/categoryHeader'
+import TopicHeader from '@/components/sections/topicHeader'
 import SideBar from '@/components/sidebar'
 import { useState, useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import ExplorationSection from '@/components/sections/exploration'
+import SearchFiltersSection from '@/components/sections/searchFilters'
 
 export default function TopicPage(params: { categoryName: string }) {
   const [isClient, setIsClient] = useState(false)
@@ -18,7 +20,10 @@ export default function TopicPage(params: { categoryName: string }) {
       <>
         <SideBar />
         <Main>
-          <CategoryHeader />
+          <TopicHeader />
+          <ExplorationSection />
+          {/* <DestaqueSection /> */}
+          <SearchFiltersSection />
         </Main>
       </>
     )

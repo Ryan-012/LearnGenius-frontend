@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Input } from './ui/input'
 import { ModalContext } from '@/contexts/modal'
 import Image from 'next/image'
-import courseImg from '@/assets/AI_IMAGE.png'
+import courseImg from '@/assets/tsImg.png'
 
 export default function SearchModal() {
   const { modalState, closeModal } = useContext(ModalContext)

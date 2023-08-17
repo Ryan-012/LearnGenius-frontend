@@ -24,9 +24,9 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className=" scroll-smooth">
       <body
-        className={`${roboto.variable} bg-gray-950 ${baiJamjuree.variable} relative min-h-screen font-sans`}
+        className={`${roboto.variable} bg-gray-950 ${baiJamjuree.variable} relative min-h-screen  font-sans`}
       >
         <ModalProvider>{children}</ModalProvider>
       </body>

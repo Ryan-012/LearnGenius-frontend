@@ -7,3 +7,24 @@ body{
   text-rendering: optimizeLegibility
   
   }
+
+  .line-underline {
+    height: 2px;
+    width: 0;
+    background-color: #FF4365;
+}
+
+/* Defina a animação */
+@keyframes expand-line {
+    from {
+        width: 0;
+    }
+    to {
+        width: 25px;
+    }
+}
+
+/* Aplicar a classe da animação na âncora durante o hover */
+a:hover .line-underline {
+    animation: expand-line 0.3s ease-in-out forwards;
+}

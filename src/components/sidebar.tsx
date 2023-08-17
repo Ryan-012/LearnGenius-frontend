@@ -4,7 +4,7 @@ import {
   HoverCardTrigger,
   HoverCardContent,
 } from '@/components/ui/hover-card'
-import courseImg from '@/assets/AI_IMAGE.png'
+import courseImg from '@/assets/tsImg.png'
 import Link from 'next/link'
 import Profile from './profile'
 import SearchBar from './search-bar'
