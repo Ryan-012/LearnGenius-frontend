@@ -1,22 +1,13 @@
-import {
-  Banknote,
-  Clock3,
-  Gauge,
-  Menu,
-  MessageSquare,
-  PlusCircle,
-} from 'lucide-react'
+import { Banknote, Clock3, Gauge, Menu } from 'lucide-react'
 import { Button } from '../ui/button'
 import Image from 'next/image'
 import courseImg from '@/assets/tsImg.png'
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuPortal,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubContent,
@@ -24,10 +15,34 @@ import {
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
 import ClassificationMenu from '../classification-menu'
-import { useState } from 'react'
+import { useEffect, useState, Dispatch, SetStateAction } from 'react'
 
 export default function SearchFiltersSection() {
-  const [amountRadioValue, setAmountRadioValue] = useState('gratuito')
+  const [amountArray, setAmountArray] = useState<String[]>([])
+  const [levelsArray, setLevelsArray] = useState<String[]>([])
+  const [durationArray, setDurationArray] = useState<String[]>([])
+
+  useEffect(() => {
+    console.log(amountArray)
+  }, [amountArray, levelsArray, durationArray])
+
+  const toggleArray = (
+    value: string,
+    array: String[],
+    setArray: Dispatch<SetStateAction<String[]>>,
+  ) => {
+    if (array.includes(value)) {
+      return setArray(array.filter((item) => item !== value))
+    }
+    setArray([...array, value])
+  }
+
+  function cleanFilters() {
+    setAmountArray([])
+    setDurationArray([])
+    setLevelsArray([])
+  }
+
   return (
     <section className=" space-y-6 px-5  text-gray-50" id="search">
       <div className="flex w-full p-3">
@@ -47,24 +62,24 @@ export default function SearchFiltersSection() {
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent className="border-gray-600 bg-gray-900 px-2 py-1.5 text-gray-50">
-                    <DropdownMenuRadioGroup
-                      value={amountRadioValue}
-                      onValueChange={(value) => setAmountRadioValue(value)}
+                    <DropdownMenuCheckboxItem
+                      className="cursor-pointer rounded hover:bg-gray-700"
+                      checked={amountArray.includes('gratuito')}
+                      onCheckedChange={() =>
+                        toggleArray('gratuito', amountArray, setAmountArray)
+                      }
                     >
-                      <DropdownMenuRadioItem
-                        value="gratuito"
-                        className="cursor-pointer rounded hover:bg-gray-700"
-                      >
-                        <span>Gratuito</span>
-                      </DropdownMenuRadioItem>
-                      {/* <DropdownMenuSeparator /> */}
-                      <DropdownMenuRadioItem
-                        value="pago"
-                        className="cursor-pointer rounded hover:bg-gray-700"
-                      >
-                        <span>Pago</span>
-                      </DropdownMenuRadioItem>
-                    </DropdownMenuRadioGroup>
+                      Gratuito
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      className="cursor-pointer rounded hover:bg-gray-700"
+                      checked={amountArray.includes('pago')}
+                      onCheckedChange={() =>
+                        toggleArray('pago', amountArray, setAmountArray)
+                      }
+                    >
+                      Pago
+                    </DropdownMenuCheckboxItem>
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
@@ -75,20 +90,37 @@ export default function SearchFiltersSection() {
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent className="border-gray-600 bg-gray-900 text-gray-50">
-                    <DropdownMenuItem>
-                      <MessageSquare className="mr-2 h-4 w-4" />
-                      <span>Iniciante</span>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                      <PlusCircle className="mr-2 h-4 w-4" />
-                      <span>Intermediário</span>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                      <PlusCircle className="mr-2 h-4 w-4" />
-                      <span>Avançado</span>
-                    </DropdownMenuItem>
+                    <DropdownMenuCheckboxItem
+                      className="cursor-pointer rounded hover:bg-gray-700"
+                      checked={levelsArray.includes('iniciante')}
+                      onCheckedChange={() =>
+                        toggleArray('iniciante', levelsArray, setLevelsArray)
+                      }
+                    >
+                      Iniciante
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      className="cursor-pointer rounded hover:bg-gray-700"
+                      checked={levelsArray.includes('intermediario')}
+                      onCheckedChange={() =>
+                        toggleArray(
+                          'intermediario',
+                          levelsArray,
+                          setLevelsArray,
+                        )
+                      }
+                    >
+                      Intermediário
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      className="cursor-pointer rounded hover:bg-gray-700"
+                      checked={levelsArray.includes('avancado')}
+                      onCheckedChange={() =>
+                        toggleArray('avancado', levelsArray, setLevelsArray)
+                      }
+                    >
+                      Avançado
+                    </DropdownMenuCheckboxItem>
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
@@ -99,26 +131,46 @@ export default function SearchFiltersSection() {
                 </DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent className="border-gray-600 bg-gray-900 text-gray-50">
-                    <DropdownMenuItem>
-                      <MessageSquare className="mr-2 h-4 w-4" />
-                      <span>1 - 10 horas</span>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                      <PlusCircle className="mr-2 h-4 w-4" />
-                      <span>11 - 30 horas</span>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                      <PlusCircle className="mr-2 h-4 w-4" />
-                      <span>31+ horas</span>
-                    </DropdownMenuItem>
+                    <DropdownMenuCheckboxItem
+                      className="cursor-pointer rounded hover:bg-gray-700"
+                      checked={durationArray.includes('curto')}
+                      onCheckedChange={() =>
+                        toggleArray('curto', durationArray, setDurationArray)
+                      }
+                    >
+                      1 - 10 horas
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      className="cursor-pointer rounded hover:bg-gray-700"
+                      checked={durationArray.includes('medio')}
+                      onCheckedChange={() =>
+                        toggleArray('medio', durationArray, setDurationArray)
+                      }
+                    >
+                      11 - 30 horas
+                    </DropdownMenuCheckboxItem>
+                    <DropdownMenuCheckboxItem
+                      className="cursor-pointer rounded hover:bg-gray-700"
+                      checked={durationArray.includes('longo')}
+                      onCheckedChange={() =>
+                        toggleArray('longo', durationArray, setDurationArray)
+                      }
+                    >
+                      31+ horas
+                    </DropdownMenuCheckboxItem>
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
             </DropdownMenuContent>
           </DropdownMenu>
           <ClassificationMenu />
+
+          <Button
+            onClick={cleanFilters}
+            className=" text-gray-300 underline underline-offset-4 hover:text-gray-50"
+          >
+            Limpar filtros
+          </Button>
         </div>
         <p className="ml-auto self-center font-alt text-gray-200 max-md:hidden">
           458 resultados
