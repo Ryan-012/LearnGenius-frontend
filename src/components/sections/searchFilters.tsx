@@ -21,9 +21,15 @@ export default function SearchFiltersSection() {
   const [amountArray, setAmountArray] = useState<String[]>([])
   const [levelsArray, setLevelsArray] = useState<String[]>([])
   const [durationArray, setDurationArray] = useState<String[]>([])
-
+  const [filterOn, setFilterOn] = useState(false)
   useEffect(() => {
-    console.log(amountArray)
+    if (
+      (amountArray.length || levelsArray.length || durationArray.length) > 0
+    ) {
+      setFilterOn(true)
+    } else {
+      setFilterOn(false)
+    }
   }, [amountArray, levelsArray, durationArray])
 
   const toggleArray = (
@@ -165,12 +171,14 @@ export default function SearchFiltersSection() {
           </DropdownMenu>
           <ClassificationMenu />
 
-          <Button
-            onClick={cleanFilters}
-            className=" text-gray-300 underline underline-offset-4 hover:text-gray-50"
-          >
-            Limpar filtros
-          </Button>
+          {filterOn && (
+            <Button
+              onClick={cleanFilters}
+              className=" text-gray-300 underline underline-offset-4 hover:text-gray-50"
+            >
+              Limpar filtros
+            </Button>
+          )}
         </div>
         <p className="ml-auto self-center font-alt text-gray-200 max-md:hidden">
           458 resultados
