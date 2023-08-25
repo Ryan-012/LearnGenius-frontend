@@ -2,7 +2,8 @@
 const nextConfig = {
   images:{
     domains:[
-      'www.palpitedigital.com'
+      'www.palpitedigital.com',
+      'raw.githubusercontent.com'
     ]
   }
 }
